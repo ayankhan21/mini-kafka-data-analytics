@@ -23,8 +23,8 @@ public class ConsumerHttpServer {
     public void start() throws Exception {
         HttpServer server = HttpServer.create(new InetSocketAddress(8083), 0);
 
-        // GET /metrics/orders-service — called by node aggregator every 1-3s
-        server.createContext("/metrics/orders-service", exchange -> {
+        // GET /metrics/analytics-service — called by node aggregator every 1-3s
+        server.createContext("/metrics/analytics-service", exchange -> {
             if (exchange.getRequestMethod().equalsIgnoreCase("GET")) {
                 String response = buildMetricsJson();
                 exchange.getResponseHeaders().set("Content-Type", "application/json");
@@ -71,7 +71,7 @@ public class ConsumerHttpServer {
 
     private String buildMetricsJson() {
         StringBuilder sb = new StringBuilder();
-        sb.append("{ \"consumerName\": \"orders-service\",");
+        sb.append("{ \"consumerName\": \"analytics-service\",");
         sb.append("\"totalEventsConsumed\": ").append(consumerState.getTotalEventsConsumed()).append(",");
         sb.append("\"partitions\": [");
 
