@@ -19,8 +19,8 @@ import java.util.Map;
 
 public class AnalyticsConsumer {
 
-    private static final String CONSUMER_GROUP = "orders-group";
-    private static final String CONSUMER_NAME = "orders-service";
+    private static final String CONSUMER_GROUP = "analytics-group";
+    private static final String CONSUMER_NAME = "analytics-service";
 
     private static ConsumerState consumerState = new ConsumerState();
     private static ManagedChannel channel;
